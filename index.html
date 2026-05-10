@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataNova | Premium Web Design, AI Agents & CRM for Founders</title>
+    <meta name="description" content="DataNova provides high-performance websites, AI support agents, and custom management software tailored for small businesses and clinics. Gamified designs that engage and convert." />
+    <!-- Retro & Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Added to support running directly in Live Server without Vite -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body class="bg-slate-900 text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-purple-500 selection:text-white">
+    
+    <!-- SYSTEM PRELOADER -->
+    <div id="preloader" class="fixed inset-0 z-[100] bg-neo-bg flex flex-col items-center justify-center animate-preloader-fade">
+      <!-- Decorative Grid -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
+      
+      <div class="relative z-10 flex flex-col items-center w-64">
+        <!-- Glitching Logo -->
+        <h2 class="retro-heading text-xl text-white mb-6 tracking-widest neon-text-cyan animate-pulse">
+          DATANOVA<span class="text-pink-500">_OS</span>
+        </h2>
+        
+        <!-- Loading Bar Container -->
+        <div class="w-full h-2 bg-slate-800 border border-slate-700 overflow-hidden mb-2">
+          <div class="h-full bg-cyan-500 shadow-[0_0_10px_#06b6d4] animate-loading-bar"></div>
+        </div>
+        
+        <div class="w-full flex justify-between text-[0.6rem] retro-heading text-slate-500">
+          <span class="animate-blink">BOOTING_SYSTEM...</span>
+          <span>v2.0</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="app" class="flex flex-col min-h-screen">
+      <!-- Navbar will be injected here -->
+      <header id="header-container"></header>
+
+      <!-- Main Content -->
+      <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="hero-container"></section>
+
+        <!-- Services Section -->
+        <section id="services-container"></section>
+      </main>
+
+      <!-- Footer -->
+      <footer id="footer-container"></footer>
+
+      <!-- Chatbot -->
+      <div id="chatbot-container"></div>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
