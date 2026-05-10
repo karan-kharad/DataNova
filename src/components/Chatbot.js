@@ -156,6 +156,7 @@ export function initChatbot(container) {
     messagesArea.scrollTop = messagesArea.scrollHeight;
 
     try {
+      // Using absolute path /api/chat for Vercel functions
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
