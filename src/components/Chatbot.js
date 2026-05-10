@@ -1,5 +1,3 @@
-// WARNING: Storing API keys in frontend code is insecure. Use a backend for production.
-const GEMINI_API_KEY = "AIzaSyDmeZ2E53s5JKSGIZPw2G6q97jEYKUX2vw";
 
 export function renderChatbot() {
   return `
@@ -156,15 +154,6 @@ export function initChatbot(container) {
     thinkingMsg.textContent = 'Processing request...';
     messagesArea.appendChild(thinkingMsg);
     messagesArea.scrollTop = messagesArea.scrollHeight;
-
-    if (GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE" || !GEMINI_API_KEY) {
-      setTimeout(() => {
-        document.getElementById(thinkingId).remove();
-        addMessage("⚠️ Error: Gemini API key is missing.");
-        chatHistory.pop();
-      }, 1000);
-      return;
-    }
 
     try {
       const response = await fetch('/api/chat', {

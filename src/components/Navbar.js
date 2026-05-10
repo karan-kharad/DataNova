@@ -19,7 +19,8 @@ export function renderNavbar() {
           <div class="hidden md:flex items-center space-x-8">
             <a href="#hero-container" class="retro-heading text-[0.65rem] text-slate-300 hover:text-cyan-400 transition-colors">INIT</a>
             <a href="#services-container" class="retro-heading text-[0.65rem] text-slate-300 hover:text-pink-400 transition-colors">MODULES</a>
-            <a href="#footer-container" class="retro-heading text-[0.65rem] text-slate-300 hover:text-purple-400 transition-colors">UPLINK</a>
+            <a href="#stories-container" class="retro-heading text-[0.65rem] text-slate-300 hover:text-emerald-400 transition-colors">SUCCESS</a>
+            <a href="#contact-container" class="retro-heading text-[0.65rem] text-slate-300 hover:text-purple-400 transition-colors">CONTACT</a>
             <button class="cyber-btn ml-4">
               [ START ]
             </button>
@@ -39,7 +40,8 @@ export function renderNavbar() {
         <div class="flex flex-col space-y-4">
           <a href="#hero-container" class="retro-heading text-[0.7rem] text-slate-300 hover:text-cyan-400">INIT</a>
           <a href="#services-container" class="retro-heading text-[0.7rem] text-slate-300 hover:text-pink-400">MODULES</a>
-          <a href="#footer-container" class="retro-heading text-[0.7rem] text-slate-300 hover:text-purple-400">UPLINK</a>
+          <a href="#stories-container" class="retro-heading text-[0.7rem] text-slate-300 hover:text-emerald-400">SUCCESS</a>
+          <a href="#contact-container" class="retro-heading text-[0.7rem] text-slate-300 hover:text-purple-400">CONTACT</a>
           <button class="cyber-btn w-full mt-4">
             [ START ]
           </button>
