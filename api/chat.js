@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
@@ -8,28 +7,30 @@ export default async function handler(req, res) {
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!apiKey) {
-    return res.status(500).json({ error: 'System Error: GEMINI_API_KEY is not configured in environment variables.' });
+    console.error("ERROR: GEMINI_API_KEY is missing from environment variables.");
+    return res.status(500).json({ 
+      error: { message: "GEMINI_API_KEY is not configured on the server. Please add it to your Vercel Environment Variables." } 
+    });
   }
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+    // Using gemini-1.5-flash as it is the current stable production model
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        contents: contents
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents })
     });
 
     const data = await response.json();
 
-    if (data.error) {
-      return res.status(400).json(data);
+    if (!response.ok) {
+      console.error("Gemini API Error:", data);
+      return res.status(response.status).json(data);
     }
 
     return res.status(200).json(data);
   } catch (error) {
-    return res.status(500).json({ error: "Failed to communicate with AI: " + error.message });
+    console.error("Fetch Error:", error);
+    return res.status(500).json({ error: { message: "Internal Server Error: " + error.message } });
   }
 }

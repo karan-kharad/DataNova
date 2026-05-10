@@ -175,7 +175,9 @@ export function initChatbot(container) {
 
     } catch (error) {
       document.getElementById(thinkingId).remove();
-      addMessage(`⚠️ System Glitch: ${error.message}`);
+      const errorMsg = error.message || "Unknown error";
+      addMessage(`⚠️ System Glitch: ${errorMsg}`);
+      console.error("Chat Error:", error);
       chatHistory.pop();
     }
   });
